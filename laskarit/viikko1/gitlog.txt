@@ -1,0 +1,50 @@
+git log --stat  |  cat
+commit 88254bc53a9d2f2127b4b40271665160c7838695
+Author: Soki <soki.fin02@gmail.com>
+Date:   Tue Mar 12 23:40:56 2024 +0200
+
+    tehtävä11
+
+ file2           | 0
+ file1 => file22 | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit e078a20dc1d5c09316e752c5d5eaffd0a2a46924
+Author: Soki <soki.fin02@gmail.com>
+Date:   Tue Mar 12 23:38:01 2024 +0200
+
+    filet olivat hakemistoja joten muutin ne tiedostoiksi
+
+ file1 | 0
+ file2 | 0
+ file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 3d759870d40d5e5c0cc1518108b4064e91d2a8be
+Author: Soki <soki.fin02@gmail.com>
+Date:   Tue Mar 12 23:32:53 2024 +0200
+
+    muokattu eka txt
+
+ eka.txt    | 3 ---
+ kolmas.txt | 1 +
+ 2 files changed, 1 insertion(+), 3 deletions(-)
+
+commit 28a36dd1c24948ed1ee48376405fb15860814e47
+Author: Soki <soki.fin02@gmail.com>
+Date:   Tue Mar 12 23:29:10 2024 +0200
+
+    tiedosto.txt nimeksi muutettu eka.txt
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit f825294ac3387d96ac1f792a13d3c13154f63197
+Author: Soki <soki.fin02@gmail.com>
+Date:   Tue Mar 12 23:27:54 2024 +0200
+
+    toinen.txt poisettu
+
+ tiedosto.txt | 2 ++
+ toinen.txt   | 1 -
+ 2 files changed, 2 insertions(+), 1 deletion(-)
