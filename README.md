@@ -1,6 +1,6 @@
 # Harjoitustyö
 
-ohjelmistotekniikka
+ohjelmistotekniikka (_ot_)
 
 # viikko1
 
