@@ -48,3 +48,4 @@ Date:   Tue Mar 12 23:27:54 2024 +0200
  tiedosto.txt | 2 ++
  toinen.txt   | 1 -
  2 files changed, 2 insertions(+), 1 deletion(-)
+muutos tehtävä 17
