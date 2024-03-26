@@ -1,5 +1,4 @@
 # viikko1
 
-[gitlog.txt](https://github.com/Sokirates/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
+[viikko1/laskarit](https://github.com/Sokirates/ot-harjoitustyo/tree/main/laskarit/viikko1)
 
-[komentorivi.txt](https://github.com/Sokirates/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
