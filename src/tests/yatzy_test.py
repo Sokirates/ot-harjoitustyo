@@ -9,5 +9,4 @@ class TestDice(unittest.TestCase):
     def test_roll(self):
         random.seed(1)
         self.dice.roll()
-        self.value(1)
-
+        self.assertEqual(self.dice.value, 2)
