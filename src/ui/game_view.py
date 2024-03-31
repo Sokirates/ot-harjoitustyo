@@ -1,6 +1,5 @@
 import pygame
 import sys
-import random
 
 def draw_start_screen(screen, font_large, font_small, width):
     screen.fill((255, 255, 255)) 
