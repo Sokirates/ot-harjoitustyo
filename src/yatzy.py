@@ -2,17 +2,6 @@ import pygame
 import sys
 import random
 
-pygame.init()
-width, height = 640, 480
-screen = pygame.display.set_mode((width, height))
-pygame.display.set_caption("Yatzy")
-
-game_running = False
-clock = pygame.time.Clock()
-
-font_large = pygame.font.SysFont("Arial", 36)
-font_small = pygame.font.SysFont("Arial", 24)
-
 class Dice:
     def __init__(self, x=0, y=0, size=70):
         self.x = x
@@ -28,7 +17,7 @@ class Dice:
         dice_text = font.render(str(self.value), True, (0, 0, 0))
         screen.blit(dice_text, (self.x + self.size // 2 - dice_text.get_width() // 2, self.y + self.size // 2 - dice_text.get_height() // 2))
 
-def draw_start_screen():
+def draw_start_screen(screen, font_large, font_small, width):
     screen.fill((255, 255, 255)) 
 
     start_message = font_large.render("Yatzy", True, (0, 0, 0))
@@ -45,7 +34,7 @@ def draw_start_screen():
 
     pygame.display.flip()
 
-def draw_instructions_screen():
+def draw_instructions_screen(screen, font_large, font_small, width):
     screen.fill((255, 255, 255))
 
     instructions_message = font_large.render("Ohjeet", True, (0, 0, 0))
@@ -75,7 +64,7 @@ def quit_game():
     pygame.quit()
     sys.exit()
 
-def draw_game_screen():
+def draw_game_screen(screen, font_small, dice1, dice2, dice3, dice4, dice5):
     global game_running
     screen.fill((255, 255, 255))
     dice1.draw(screen, font_small)
@@ -86,28 +75,45 @@ def draw_game_screen():
     game_running = True
     pygame.display.flip()
     
+def main():
 
-draw_start_screen()
 
-while True:
-    for event in pygame.event.get():
-        if not game_running:    
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_SPACE:
-                    dice1 = Dice(50, 50)
-                    dice2 = Dice(150, 50)
-                    dice3 = Dice(250, 50)
-                    dice4 = Dice(350, 50)
-                    dice5 = Dice(450, 50)
-                    draw_game_screen()
-                elif event.key == pygame.K_1:
-                    draw_instructions_screen()
-                elif event.key == pygame.K_ESCAPE:
+    pygame.init()
+    width, height = 640, 480
+    screen = pygame.display.set_mode((width, height))
+    pygame.display.set_caption("Yatzy")
+
+    game_running = False
+    clock = pygame.time.Clock()
+
+    font_large = pygame.font.SysFont("Arial", 36)
+    font_small = pygame.font.SysFont("Arial", 24)
+
+
+    draw_start_screen(screen, font_large, font_small, width)
+
+    while True:
+        for event in pygame.event.get():
+            if not game_running:    
+                if event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_SPACE:
+                        dice1 = Dice(50, 50)
+                        dice2 = Dice(150, 50)
+                        dice3 = Dice(250, 50)
+                        dice4 = Dice(350, 50)
+                        dice5 = Dice(450, 50)
+                        draw_game_screen(screen, font_small, dice1, dice2, dice3, dice4, dice5)
+                    elif event.key == pygame.K_1:
+                        draw_instructions_screen(screen, font_large, font_small, width)
+                    elif event.key == pygame.K_ESCAPE:
+                        quit_game()
+                    elif event.key == pygame.K_2:
+                        draw_start_screen(screen, font_large, font_small, width)
+            else:
+                if event.type == pygame.QUIT:
                     quit_game()
-                elif event.key == pygame.K_2:
-                    draw_start_screen()
-        else:
-            if event.type == pygame.QUIT:
-                quit_game()
 
-    clock.tick(80)
+        clock.tick(80)
+
+if __name__ == "__main__":
+    main()
