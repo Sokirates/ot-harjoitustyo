@@ -1,9 +1,10 @@
 import unittest
-from yatzy import Dice
+from src.entities.dice import Dice
 import random
 
+
 class TestDice(unittest.TestCase):
-    def setUp(self) -> None:
+    def setUp(self):
         self.dice = Dice()
     
     def test_roll(self):
