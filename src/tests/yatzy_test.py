@@ -6,7 +6,7 @@ import random
 class TestDice(unittest.TestCase):
     def setUp(self):
         self.dice = Dice()
-    
+
     def test_roll(self):
         random.seed(1)
         self.dice.roll()
