@@ -46,7 +46,8 @@ def main():
                         dice4.roll()
                         dice5.roll()
                         draw_game_screen(screen, font_small, dice1, dice2, dice3, dice4, dice5)
-                        pygame.display.flip()    
+                        pygame.display.flip() 
+                        
                     elif event.key == pygame.K_ESCAPE:
                         quit_game()
 

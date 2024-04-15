@@ -73,12 +73,24 @@ def quit_game():
 
 
 def draw_game_screen(screen, font_small, dice1, dice2, dice3, dice4, dice5):
-    global game_running
     screen.fill((255, 255, 255))
     dice1.draw(screen, font_small)
     dice2.draw(screen, font_small)
     dice3.draw(screen, font_small)
     dice4.draw(screen, font_small)
     dice5.draw(screen, font_small)
-    game_running = True
+
+    dice_rolling_text = font_small.render(
+        "Heitä nopppia (SPACE)", True, (0, 0, 0))
+    screen.blit(dice_rolling_text, (150 -
+                dice_rolling_text.get_width() // 2, 10))
+    
+    quit_game_text = font_small.render(
+        "Lopeta peli (Paina ESC)", True, (0, 0, 0))
+    screen.blit(quit_game_text, (500 -
+                quit_game_text.get_width() // 2, 450))
+    
     pygame.display.flip()
+    global game_running
+    game_running = True
+
