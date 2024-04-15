@@ -1,13 +1,12 @@
-import random
 import pygame
-
+import random
 
 class Dice:
     def __init__(self, x=0, y=0, size=70):
         self.x = x
         self.y = y
         self.size = size
-        self.value = 1
+        self.value = 0
 
     def roll(self):
         self.value = random.randint(1, 6)
