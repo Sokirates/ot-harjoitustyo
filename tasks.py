@@ -18,5 +18,5 @@ def coverage_report(ctx):
 
 @task
 def lint(ctx):
-    ctx.run("poetry run pylint src", pty=True)
+    ctx.run("cd src/ && poetry run pylint .", pty=True)
 
