@@ -4,6 +4,7 @@
 - [Vaatimusmäärittely](https://github.com/Sokirates/ot-harjoitustyo/blob/main/dokumentaatio/Vaatimusm%C3%A4%C3%A4rittely.md)
 - [Tuntikirjanpito](https://github.com/Sokirates/ot-harjoitustyo/blob/main/dokumentaatio/tuntikirjanpito.md)
 - [Changelog](https://github.com/Sokirates/ot-harjoitustyo/blob/main/dokumentaatio/changelog.md)
+- [Arkkitehtuuri](https://github.com/Sokirates/ot-harjoitustyo/blob/main/dokumentaatio/Arkkitehtuuri.md)
 
 ## Asennus
 
