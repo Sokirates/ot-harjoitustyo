@@ -1,7 +1,6 @@
 import pygame
 from entities.dice import Dice
-from ui.game_view import draw_start_screen, draw_instructions_screen, draw_game_screen, quit_game
-
+from ui.game_view import *
 
 def main():
     pygame.init()
@@ -39,11 +38,71 @@ def handle_game_not_running_events(event, screen, font_large, font_small, width,
 
 def handle_game_running_events(event, screen, font_small, dices):
     if event.key == pygame.K_SPACE:
+        [dice1, dice2, dice3, dice4, dice5] = dices
         for dice in dices:
             dice.roll()
-        dice1, dice2, dice3, dice4, dice5 = dices
         draw_game_screen(screen, font_small, dice1, dice2, dice3, dice4, dice5)
         pygame.display.flip()
+    elif event.key == pygame.K_1:
+        draw_ones_points(screen, font_small, dices)
+        pygame.display.flip()
+    
+    elif event.key == pygame.K_2:
+        draw_twos_points(screen, font_small, dices)
+        pygame.display.flip()
+
+    elif event.key == pygame.K_3:
+        draw_threes_points(screen, font_small, dices)
+        pygame.display.flip()
+
+    elif event.key == pygame.K_4:
+        draw_fours_points(screen, font_small, dices)
+        pygame.display.flip()
+
+    elif event.key == pygame.K_5:
+        draw_fives_points(screen, font_small, dices)
+        pygame.display.flip()
+
+    elif event.key == pygame.K_6:
+        draw_sixes_points(screen, font_small, dices)
+        pygame.display.flip()
+
+    elif event.key == pygame.K_q:
+        draw_pair_points(screen, font_small, dices)
+        pygame.display.flip()
+    
+    elif event.key == pygame.K_w:
+        draw_two_pairs_points(screen, font_small, dices)
+        pygame.display.flip()
+
+    elif event.key == pygame.K_e:
+        draw_three_of_a_kind_points(screen, font_small, dices)
+        pygame.display.flip()
+
+    elif event.key == pygame.K_r:
+        draw_four_of_a_kind_points(screen, font_small, dices)
+        pygame.display.flip()
+    
+    elif event.key == pygame.K_t:
+        draw_small_straight_points(screen, font_small, dices)
+        pygame.display.flip()
+
+    elif event.key == pygame.K_y:
+        draw_large_straight_points(screen, font_small, dices)
+        pygame.display.flip()
+
+    elif event.key == pygame.K_u:
+        draw_full_house_points(screen, font_small, dices)
+        pygame.display.flip()
+
+    elif event.key == pygame.K_i:
+        draw_chance_points(screen, font_small, dices)
+        pygame.display.flip()
+
+    elif event.key == pygame.K_o:
+        draw_yatzy_points(screen, font_small, dices)
+        pygame.display.flip()
+
     elif event.key == pygame.K_ESCAPE:
         quit_game()
 
