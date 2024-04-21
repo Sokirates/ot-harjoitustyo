@@ -10,4 +10,4 @@ päivä | aika(h) | mitä tein
 16.4|5|koodin siistiminen pylintin mukaan
 20.4|6|pistetaulukko näkyville ja jatkettu koodaa points.py
 21.4|4|typpaamalla pystyy nyt nähdä sen kohdan pisteet
-Yhteensä|27
+Yhteensä|37
