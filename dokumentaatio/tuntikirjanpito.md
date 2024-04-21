@@ -8,4 +8,6 @@ päivä | aika(h) | mitä tein
 15.4|3|pylintin asennus ja noppien heitto
 16.4|3|testien lisääminen
 16.4|5|koodin siistiminen pylintin mukaan
+20.4|6|pistetaulukko näkyville ja jatkettu koodaa points.py
+21.4|4|typpaamalla pystyy nyt nähdä sen kohdan pisteet
 Yhteensä|27
