@@ -19,7 +19,6 @@ def main():
     game_loop(screen, game_running, clock, font_small, font_large, width)
 
 def handle_game_not_running_events(event, screen, font_large, font_small, width, game_running):
-    dice1, dice2, dice3, dice4, dice5 = [None] * 5
     if event.key == pygame.K_SPACE:
         dices = [Dice(i*100 + 50, 50) for i in range(5)]
 
