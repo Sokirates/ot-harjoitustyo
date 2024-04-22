@@ -1,4 +1,4 @@
-class Points_counter:
+class PointsCounter:
     @staticmethod
     def calculate_ones(dices):
         ones_count = 0
@@ -6,7 +6,7 @@ class Points_counter:
             if dice.value == 1:
                 ones_count += 1
         return ones_count
-    
+
     @staticmethod
     def calculate_twos(dices):
         twos_count = 0
@@ -38,7 +38,7 @@ class Points_counter:
             if dice.value == 5:
                 fives_count += 5
         return fives_count
-    
+
     @staticmethod
     def calculate_sixes(dices):
         sixes_count = 0
@@ -55,7 +55,6 @@ class Points_counter:
                 return value * 2
         return 0
 
-
     @staticmethod
     def calculate_two_pairs(dices):
         pairs = []
@@ -66,7 +65,6 @@ class Points_counter:
             if len(pairs) == 2:
                 return sum(pairs) * 2
         return 0
-
 
     @staticmethod
     def calculate_three_of_a_kind(dices):
