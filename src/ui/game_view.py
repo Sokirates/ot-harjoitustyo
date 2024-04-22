@@ -123,99 +123,97 @@ def draw_game_screen(screen, font_small, dice1, dice2, dice3, dice4, dice5):
         screen.blit(text_rendered, (300, text_y_position))
         text_y_position += 30
 
-    
-
     pygame.display.flip()
     global game_running
     game_running = True
 
 
 def draw_ones_points(screen, font_small, dices):
-    ones_score = entities.points.Points.calculate_ones(dices)
+    ones_score = entities.points.Points_counter.calculate_ones(dices)
     text_rendered = font_small.render(f"{ones_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (120, 170))
     pygame.display.flip()
 
 def draw_twos_points(screen, font_small, dices):
-    twos_score = entities.points.Points.calculate_twos(dices)
+    twos_score = entities.points.Points_counter.calculate_twos(dices)
     text_rendered = font_small.render(f"{twos_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (120, 205))
     pygame.display.flip()
 
 def draw_threes_points(screen, font_small, dices):
-    threes_score = entities.points.Points.calculate_threes(dices)
+    threes_score = entities.points.Points_counter.calculate_threes(dices)
     text_rendered = font_small.render(f"{threes_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (120, 240))
     pygame.display.flip()
 
 def draw_fours_points(screen, font_small, dices):
-    fours_score = entities.points.Points.calculate_fours(dices)
+    fours_score = entities.points.Points_counter.calculate_fours(dices)
     text_rendered = font_small.render(f"{fours_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (120, 275))
     pygame.display.flip()
 
 def draw_fives_points(screen, font_small, dices):
-    fives_score = entities.points.Points.calculate_fives(dices)
+    fives_score = entities.points.Points_counter.calculate_fives(dices)
     text_rendered = font_small.render(f"{fives_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (120, 310))
     pygame.display.flip()
 
 def draw_sixes_points(screen, font_small, dices):
-    sixes_score = entities.points.Points.calculate_sixes(dices)
+    sixes_score = entities.points.Points_counter.calculate_sixes(dices)
     text_rendered = font_small.render(f"{sixes_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (120, 345))
     pygame.display.flip()
 
 def draw_pair_points(screen, font_small, dices):
-    pair_score = entities.points.Points.calculate_pair(dices)
+    pair_score = entities.points.Points_counter.calculate_pair(dices)
     text_rendered = font_small.render(f"{pair_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (500, 170))
     pygame.display.flip()
 
 def draw_two_pairs_points(screen, font_small, dices):
-    two_pair_score = entities.points.Points.calculate_two_pairs(dices)
+    two_pair_score = entities.points.Points_counter.calculate_two_pairs(dices)
     text_rendered = font_small.render(f"{two_pair_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (500, 200))
     pygame.display.flip()
 
 def draw_three_of_a_kind_points(screen, font_small, dices):
-    three_kind_score = entities.points.Points.calculate_three_of_a_kind(dices)
+    three_kind_score = entities.points.Points_counter.calculate_three_of_a_kind(dices)
     text_rendered = font_small.render(f"{three_kind_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (500, 230))
     pygame.display.flip()
 
 def draw_four_of_a_kind_points(screen, font_small, dices):
-    four_kind_score = entities.points.Points.calculate_four_of_a_kind(dices)
+    four_kind_score = entities.points.Points_counter.calculate_four_of_a_kind(dices)
     text_rendered = font_small.render(f"{four_kind_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (500, 260))
     pygame.display.flip()
 
 def draw_small_straight_points(screen, font_small, dices):
-    small_score = entities.points.Points.calculate_small_straight(dices)
+    small_score = entities.points.Points_counter.calculate_small_straight(dices)
     text_rendered = font_small.render(f"{small_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (500, 290))
     pygame.display.flip()
 
 def draw_large_straight_points(screen, font_small, dices):
-    large_score = entities.points.Points.calculate_large_straight(dices)
+    large_score = entities.points.Points_counter.calculate_large_straight(dices)
     text_rendered = font_small.render(f"{large_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (500, 320))
     pygame.display.flip()
 
 def draw_full_house_points(screen, font_small, dices):
-    full_house_score = entities.points.Points.calculate_full_house(dices)
+    full_house_score = entities.points.Points_counter.calculate_full_house(dices)
     text_rendered = font_small.render(f"{full_house_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (500, 350))
     pygame.display.flip()
 
 def draw_chance_points(screen, font_small, dices):
-    chance_score = entities.points.Points.calculate_chance(dices)
+    chance_score = entities.points.Points_counter.calculate_chance(dices)
     text_rendered = font_small.render(f"{chance_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (500, 380))
     pygame.display.flip()
 
 def draw_yatzy_points(screen, font_small, dices):
-    yatzy_score = entities.points.Points.calculate_yatzy(dices)
+    yatzy_score = entities.points.Points_counter.calculate_yatzy(dices)
     text_rendered = font_small.render(f"{yatzy_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (500, 410))
     pygame.display.flip()

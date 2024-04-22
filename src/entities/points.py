@@ -1,4 +1,4 @@
-class Points:
+class Points_counter:
     @staticmethod
     def calculate_ones(dices):
         ones_count = 0
@@ -75,7 +75,7 @@ class Points:
             if count >= 3:
                 return sum(dice.value for dice in dices if dice.value == value)
         return 0
-    
+
     @staticmethod
     def calculate_four_of_a_kind(dices):
         for value in range(1, 7):
@@ -83,21 +83,21 @@ class Points:
             if count >= 4:
                 return sum(dice.value for dice in dices if dice.value == value)
         return 0
-    
+
     @staticmethod
     def calculate_small_straight(dices):
         values = sorted(dice.value for dice in dices)
         if values == [1, 2, 3, 4, 5]:
             return 15
         return 0
-    
+
     @staticmethod
     def calculate_large_straight(dices):
         values = sorted(dice.value for dice in dices)
         if values == [2, 3, 4, 5, 6]:
             return 20
         return 0
-    
+
     @staticmethod
     def calculate_full_house(dices):
         for value in range(1, 7):
@@ -108,15 +108,14 @@ class Points:
                     if count2 == 2 and value2 != value:
                         return sum(dice.value for dice in dices)
         return 0
-    
+
     @staticmethod
     def calculate_chance(dices):
         return sum(dice.value for dice in dices)
-    
+
     @staticmethod
     def calculate_yatzy(dices):
         for value in range(1, 7):
             if sum(1 for dice in dices if dice.value == value) == 5:
                 return 50
         return 0
-    

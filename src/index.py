@@ -28,6 +28,7 @@ def handle_game_not_running_events(event, screen, font_large, font_small, width,
         dice5 = Dice(450, 50)
         draw_game_screen(screen, font_small, dice1, dice2, dice3, dice4, dice5)
         game_running = True
+        
     elif event.key == pygame.K_1:
         draw_instructions_screen(screen, font_large, font_small, width)
     elif event.key == pygame.K_ESCAPE:
@@ -43,6 +44,7 @@ def handle_game_running_events(event, screen, font_small, dices):
             dice.roll()
         draw_game_screen(screen, font_small, dice1, dice2, dice3, dice4, dice5)
         pygame.display.flip()
+        
     elif event.key == pygame.K_1:
         draw_ones_points(screen, font_small, dices)
         pygame.display.flip()
@@ -120,9 +122,6 @@ def game_loop(screen, game_running, clock, font_small, font_large, width):
                 handle_game_running_events(event, screen, font_small, dices)
 
         clock.tick(80)
-
-
-
 
 if __name__ == "__main__":
     main()
