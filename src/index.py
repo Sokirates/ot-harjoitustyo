@@ -21,12 +21,9 @@ def main():
 def handle_game_not_running_events(event, screen, font_large, font_small, width, game_running):
     dice1, dice2, dice3, dice4, dice5 = [None] * 5
     if event.key == pygame.K_SPACE:
-        dice1 = Dice(50, 50)
-        dice2 = Dice(150, 50)
-        dice3 = Dice(250, 50)
-        dice4 = Dice(350, 50)
-        dice5 = Dice(450, 50)
-        draw_game_screen(screen, font_small, dice1, dice2, dice3, dice4, dice5)
+        dices = [Dice(i*100 + 50, 50) for i in range(5)]
+
+        draw_game_screen(screen, font_small, dices)
         game_running = True
         
     elif event.key == pygame.K_1:
@@ -35,14 +32,13 @@ def handle_game_not_running_events(event, screen, font_large, font_small, width,
         quit_game()
     elif event.key == pygame.K_2:
         draw_start_screen(screen, font_large, font_small, width)
-    return game_running, [dice1, dice2, dice3, dice4, dice5]
+    return game_running, dices
 
 def handle_game_running_events(event, screen, font_small, dices):
     if event.key == pygame.K_SPACE:
-        [dice1, dice2, dice3, dice4, dice5] = dices
         for dice in dices:
             dice.roll()
-        draw_game_screen(screen, font_small, dice1, dice2, dice3, dice4, dice5)
+        draw_game_screen(screen, font_small, dices)
         pygame.display.flip()
         
     elif event.key == pygame.K_1:

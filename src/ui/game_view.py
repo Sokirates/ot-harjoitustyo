@@ -73,29 +73,26 @@ def quit_game():
     sys.exit()
 
 
-def draw_game_screen(screen, font_small, dice1, dice2, dice3, dice4, dice5):
+def draw_game_screen(screen, font_small, dices):
     screen.fill((255, 255, 255))
-    dice1.draw(screen, font_small)
-    dice2.draw(screen, font_small)
-    dice3.draw(screen, font_small)
-    dice4.draw(screen, font_small)
-    dice5.draw(screen, font_small)
-
+    for dice in dices:
+        dice.draw(screen, font_small)
+    
     dice_rolling_text = font_small.render(
         "Heitä nopppia (SPACE)", True, (0, 0, 255))
     screen.blit(dice_rolling_text, (150 -
                 dice_rolling_text.get_width() // 2, 10))
-    
+
     quit_game_text = font_small.render(
         "Lopeta peli (Paina ESC)", True, (0, 0, 0))
     screen.blit(quit_game_text, (500 -
                 quit_game_text.get_width() // 2, 450))
-    
+
     text_rolls_left = font_small.render("Heittoja jäljellä:", True, (255, 0, 0))
     screen.blit(text_rolls_left, (400, 10))
 
     text_hold_dice = font_small.render("Lukitse painamalla noppia", True, (0, 0, 255))
-    screen.blit(text_hold_dice, (50, 135))    
+    screen.blit(text_hold_dice, (50, 135))
 
     text_y_position = 170
     for i in range(1, 7):
