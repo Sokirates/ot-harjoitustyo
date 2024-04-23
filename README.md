@@ -45,5 +45,9 @@ Testikattavuusraportin voi generoida komennolla:
 poetry run invoke coverage-report
 ```
 
+### Releases
+[Viikko5](https://github.com/Sokirates/ot-harjoitustyo/releases/tag/viikko5)
+
+
 Raportti generoituu _htmlcov_-hakemistoon.
 
