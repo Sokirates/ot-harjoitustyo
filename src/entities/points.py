@@ -79,8 +79,9 @@ class PointsCounter:
         for value in range(1, 7):
             count = sum(1 for dice in dices if dice.value == value)
             if count >= 4:
-                return sum(dice.value for dice in dices if dice.value == value)
+                return value * 4
         return 0
+
 
     @staticmethod
     def calculate_small_straight(dices):

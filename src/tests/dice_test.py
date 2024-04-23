@@ -1,6 +1,7 @@
 import unittest
 from src.entities.dice import Dice
 import pygame
+import random
 
 
 class TestDice(unittest.TestCase):
@@ -8,8 +9,10 @@ class TestDice(unittest.TestCase):
         self.dice = Dice()
 
     def test_roll(self):
+        random.seed(1)
         self.dice.roll()
-        self.assertIn(self.dice.value, range(1, 7))
+
+        self.assertEqual(self.dice.value, 2)
 
     def test_draw(self):
         pygame.init()
