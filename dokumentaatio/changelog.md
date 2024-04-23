@@ -7,3 +7,7 @@
 
 - Käyttäjä pystyy heittämään noppia
 
+## Viikko5
+
+- Käyttäjä näkee pistetaulukon
+- Pistetaulukkoon pystyy laittamaan sen hetkisen noppien pisteet
