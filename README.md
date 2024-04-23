@@ -44,10 +44,10 @@ Testikattavuusraportin voi generoida komennolla:
 ```bash
 poetry run invoke coverage-report
 ```
+Raportti generoituu _htmlcov_-hakemistoon.
+
 
 ### Releases
 [Viikko5](https://github.com/Sokirates/ot-harjoitustyo/releases/tag/viikko5)
 
-
-Raportti generoituu _htmlcov_-hakemistoon.
 
