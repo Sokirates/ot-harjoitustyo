@@ -1,5 +1,5 @@
 import unittest
-from entities.dice import Dice
+from src.entities.dice import Dice
 import pygame
 import random
 

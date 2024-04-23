@@ -1,6 +1,6 @@
 import unittest
-from entities.points import PointsCounter
-from entities.dice import Dice
+from src.entities.points import PointsCounter
+from src.entities.dice import Dice
 
 class TestDice(unittest.TestCase):
     def setUp(self):
