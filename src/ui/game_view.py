@@ -79,9 +79,8 @@ def draw_game_screen(screen, font_small, dices):
         dice.draw(screen, font_small)
 
     dice_rolling_text = font_small.render(
-        "Heitä nopppia (SPACE)", True, (0, 0, 255))
-    screen.blit(dice_rolling_text, (150 -
-                dice_rolling_text.get_width() // 2, 10))
+        "Heitä nopppia (Paina SPACE)", True, (0, 0, 255))
+    screen.blit(dice_rolling_text, (10, 10))
 
     quit_game_text = font_small.render(
         "Lopeta peli (Paina ESC)", True, (0, 0, 0))
@@ -93,8 +92,8 @@ def draw_game_screen(screen, font_small, dices):
     screen.blit(text_rolls_left, (400, 10))
 
     text_hold_dice = font_small.render(
-        "Lukitse painamalla noppia", True, (0, 0, 255))
-    screen.blit(text_hold_dice, (50, 135))
+        "Lukitse haluamia noppia (Paina ENTER)", True, (0, 0, 255))
+    screen.blit(text_hold_dice, (40, 130))
 
     text_y_position = 170
     for i in range(1, 7):
