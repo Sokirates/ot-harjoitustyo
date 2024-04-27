@@ -71,9 +71,18 @@ def handle_game_not_running_events(event, screen, font_large, font_small, width,
 def handle_game_running_events(event, screen, font_small, dices):
     if event.key == pygame.K_SPACE: # pylint: disable=no-member
         for dice in dices:
-            dice.roll()
+            if not dice.locked:  # Tarkista, onko noppa lukittu
+                dice.roll()
         draw_game_screen(screen, font_small, dices)
         pygame.display.flip()
+
+    elif event.key == pygame.K_RETURN: # pylint: disable=no-member  
+        x, y = pygame.mouse.get_pos()
+        for dice in dices:
+            if dice.x <= x <= dice.x + dice.size and dice.y <= y <= dice.y + dice.size:
+                dice.locked = not dice.locked  # Vaihda nopan lukitusasetus
+                draw_game_screen(screen, font_small, dices)
+                pygame.display.flip()
 
     elif event.key == pygame.K_1: # pylint: disable=no-member
         draw_ones_points(screen, font_small, dices)

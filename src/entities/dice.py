@@ -8,6 +8,7 @@ class Dice:
         self.y = y
         self.size = size
         self.value = 0
+        self.locked = False
 
     def roll(self):
         self.value = random.randint(1, 6)
@@ -15,6 +16,9 @@ class Dice:
     def draw(self, screen, font):
         pygame.draw.rect(screen, (0, 0, 0),
                          (self.x, self.y, self.size, self.size), 2)
-        dice_text = font.render(str(self.value), True, (0, 0, 0))
-        screen.blit(dice_text, (self.x + self.size // 2 - dice_text.get_width() //
-                    2, self.y + self.size // 2 - dice_text.get_height() // 2))
+        if self.locked:
+            dice_text = font.render(str(self.value), True, (255, 0, 0))
+        else:
+            dice_text = font.render(str(self.value), True, (0, 0, 0))
+        screen.blit(dice_text, (self.x + self.size // 2 - dice_text.get_width() // 2,
+                                self.y + self.size // 2 - dice_text.get_height() // 2))
