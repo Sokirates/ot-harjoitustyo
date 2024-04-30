@@ -17,7 +17,8 @@ Sovelluksella on alustavasti yksi käyttäjärooli.
 - Pelaaja pystyy heittää noppia  (tehty)
 - Pelaaja näkee pistetaulukon (tehty)
 - Pelaaja pystyy laittamaan pisteen pistetaulukkoon (tehty)
-- Pelaaja pystyy heittää uudestaan haluamia noppia
+- Pelaaja pystyy lukitsemaan valitsemansa noppia (tehty)
+- Pelaaja pystyy heittää uudestaan haluamia noppia (tehty)
 - Pelaaja näkee sen hetkiset pisteet
 - Pelaaja näkee ruudukon mitä ei ole vielä täyttänyt
 
