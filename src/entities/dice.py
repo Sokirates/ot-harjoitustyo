@@ -3,7 +3,16 @@ import pygame
 
 
 class Dice:
+    """
+    Luokka yksittäiselle nopalle
+    """
     def __init__(self, x=0, y=0, size=70):
+        """
+        Args:
+            - x: Nopan x-koordinaatti peliruudulla
+            - y: Nopan y-koordinaatti peliruudulla
+            - size: Nopan koko peliruudulla
+        """
         self.x = x
         self.y = y
         self.size = size
@@ -11,9 +20,15 @@ class Dice:
         self.locked = False
 
     def roll(self):
+        """
+        Nopan heittäminen
+        """
         self.value = random.randint(1, 6)
 
     def draw(self, screen, font):
+        """
+        Nopan piirtäminen
+        """
         pygame.draw.rect(screen, (0, 0, 0),
                          (self.x, self.y, self.size, self.size), 2)
         if self.locked:
