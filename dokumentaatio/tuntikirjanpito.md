@@ -12,4 +12,6 @@ päivä | aika(h) | mitä tein
 21.4|4|typpaamalla pystyy nyt nähdä sen kohdan pisteet
 22.4|5|koodin siistiminen ja suunnittelu
 23.4|3|testien lisääminen
-Yhteensä|45
+27.4|2|noppien lukitseminen
+30.4|3|koodin refaktorointia + pelivuorojen implementointi
+Yhteensä|50
