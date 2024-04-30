@@ -87,9 +87,14 @@ def draw_game_screen(screen, font_small, dices, throws_left=None):
     screen.blit(quit_game_text, (500 -
                 quit_game_text.get_width() // 2, 450))
 
-    text_rolls_left = font_small.render(
-        f"Heittoja jäljellä: {throws_left}", True, (255, 0, 0))
-    screen.blit(text_rolls_left, (400, 10))
+    if throws_left == 0:
+        text_rolls_left = font_small.render(
+            "Aloita uusi kierros (ENTER)", True, (255, 0, 0))   
+        screen.blit(text_rolls_left, (340, 10))
+    else:
+        text_rolls_left = font_small.render(
+            f"Heittoja jäljellä: {throws_left}", True, (255, 0, 0))
+        screen.blit(text_rolls_left, (400, 10))
 
     text_hold_dice = font_small.render(
         "Lukitse haluamia noppia (Paina ENTER)", True, (0, 0, 255))
