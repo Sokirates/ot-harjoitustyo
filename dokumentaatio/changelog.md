@@ -11,3 +11,8 @@
 
 - Käyttäjä näkee pistetaulukon
 - Pistetaulukkoon pystyy laittamaan sen hetkisen noppien pisteet
+
+## Viikko6
+
+- Käyttäjä pystyy lukitsemaan noppia
+- Käyttäjä pystyy heittämään korkeintaan kolme kertaa noppia vuorollaan
