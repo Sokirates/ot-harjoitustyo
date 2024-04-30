@@ -73,7 +73,7 @@ def quit_game():
     sys.exit()
 
 
-def draw_game_screen(screen, font_small, dices):
+def draw_game_screen(screen, font_small, dices, throws_left=None):
     screen.fill((255, 255, 255))
     for dice in dices:
         dice.draw(screen, font_small)
@@ -88,7 +88,7 @@ def draw_game_screen(screen, font_small, dices):
                 quit_game_text.get_width() // 2, 450))
 
     text_rolls_left = font_small.render(
-        "Heittoja jäljellä:", True, (255, 0, 0))
+        f"Heittoja jäljellä: {throws_left}", True, (255, 0, 0))
     screen.blit(text_rolls_left, (400, 10))
 
     text_hold_dice = font_small.render(

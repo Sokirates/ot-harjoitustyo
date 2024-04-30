@@ -55,19 +55,16 @@ class GameLoop:
                     continue
 
                 if not self.game_running:
-                    self.game_running, dices = self.handle_game_not_running_events(event)
+                    self.game_running = self.handle_game_not_running_events(event)
                 else:
-                    self.handle_game_running_events(event, dices)
+                    self.handle_game_running_events(event)
 
             self.clock.tick(80)
 
 
     def handle_game_not_running_events(self, event):
-        self.dices = None
         if event.key == pygame.K_SPACE: # pylint: disable=no-member
-            dices = [Dice(i*100 + 50, 50) for i in range(5)]
-
-            draw_game_screen(self.screen, self.font_small, dices)
+            draw_game_screen(self.screen, self.font_small, self.turn.dices, self.turn.throws_left)
             game_running = True
 
         elif event.key == pygame.K_1: # pylint: disable=no-member
@@ -76,70 +73,72 @@ class GameLoop:
             quit_game()
         elif event.key == pygame.K_2: # pylint: disable=no-member
             draw_start_screen(self.screen, self.font_large, self.font_small, self.width)
-        return game_running, dices
+        return game_running
 
 
-    def handle_game_running_events(self, event, dices):
-        if event.key == pygame.K_SPACE: # pylint: disable=no-member
-            for dice in dices:
-                if not dice.locked:  # Tarkista, onko noppa lukittu
-                    dice.roll()
-            draw_game_screen(self.screen, self.font_small, dices)
+    def handle_game_running_events(self, event):
+        if self.turn.throws_left <= 0 and event.key == pygame.K_RETURN:
+            self.turn = GameTurn()
+            draw_game_screen(self.screen, self.font_small, self.turn.dices, self.turn.throws_left)
+
+        elif self.turn.throws_left >= 1 and event.key == pygame.K_SPACE: # pylint: disable=no-member
+            self.turn.throw_dices()
+            draw_game_screen(self.screen, self.font_small, self.turn.dices, self.turn.throws_left)
 
         elif event.key == pygame.K_RETURN: # pylint: disable=no-member  
             x, y = pygame.mouse.get_pos()
-            for dice in dices:
+            for dice in self.turn.dices:
                 if dice.x <= x <= dice.x + dice.size and dice.y <= y <= dice.y + dice.size:
                     dice.locked = not dice.locked  # Vaihda nopan lukitusasetus
-                    draw_game_screen(self.screen, self.font_small, dices)
+                    draw_game_screen(self.screen, self.font_small, self.turn.dices, self.turn.throws_left)
 
         elif event.key == pygame.K_1: # pylint: disable=no-member
-            draw_ones_points(self.screen, self.font_small, dices)
+            draw_ones_points(self.screen, self.font_small, self.turn.dices)
 
         elif event.key == pygame.K_2: # pylint: disable=no-member
-            draw_twos_points(self.screen, self.font_small, dices)
+            draw_twos_points(self.screen, self.font_small, self.turn.dices)
 
         elif event.key == pygame.K_3: # pylint: disable=no-member
-            draw_threes_points(self.screen, self.font_small, dices)
+            draw_threes_points(self.screen, self.font_small, self.turn.dices)
 
         elif event.key == pygame.K_4: # pylint: disable=no-member
-            draw_fours_points(self.screen, self.font_small, dices)
+            draw_fours_points(self.screen, self.font_small, self.turn.dices)
 
         elif event.key == pygame.K_5: # pylint: disable=no-member
-            draw_fives_points(self.screen, self.font_small, dices)
+            draw_fives_points(self.screen, self.font_small, self.turn.dices)
 
         elif event.key == pygame.K_6: # pylint: disable=no-member
-            draw_sixes_points(self.screen, self.font_small, dices)
+            draw_sixes_points(self.screen, self.font_small, self.turn.dices)
 
         elif event.key == pygame.K_q: # pylint: disable=no-member
-            draw_pair_points(self.screen, self.font_small, dices)
+            draw_pair_points(self.screen, self.font_small, self.turn.dices)
 
         elif event.key == pygame.K_w: # pylint: disable=no-member
-            draw_two_pairs_points(self.screen, self.font_small, dices)
+            draw_two_pairs_points(self.screen, self.font_small, self.turn.dices)
 
         elif event.key == pygame.K_e: # pylint: disable=no-member
-            draw_three_of_a_kind_points(self.screen, self.font_small, dices)
+            draw_three_of_a_kind_points(self.screen, self.font_small, self.turn.dices)
 
         elif event.key == pygame.K_r: # pylint: disable=no-member
-            draw_four_of_a_kind_points(self.screen, self.font_small, dices)
+            draw_four_of_a_kind_points(self.screen, self.font_small, self.turn.dices)
 
         elif event.key == pygame.K_t: # pylint: disable=no-member
-            draw_small_straight_points(self.screen, self.font_small, dices)
+            draw_small_straight_points(self.screen, self.font_small, self.turn.dices)
 
         elif event.key == pygame.K_y: # pylint: disable=no-member
-            draw_large_straight_points(self.screen, self.font_small, dices)
+            draw_large_straight_points(self.screen, self.font_small, self.turn.dices)
 
         elif event.key == pygame.K_u: # pylint: disable=no-member
-            draw_full_house_points(self.screen, self.font_small, dices)
+            draw_full_house_points(self.screen, self.font_small, self.turn.dices)
 
         elif event.key == pygame.K_i: # pylint: disable=no-member
-            draw_chance_points(self.screen, self.font_small, dices)
+            draw_chance_points(self.screen, self.font_small, self.turn.dices)
 
         elif event.key == pygame.K_o: # pylint: disable=no-member
-            draw_yatzy_points(self.screen, self.font_small, dices)
+            draw_yatzy_points(self.screen, self.font_small, self.turn.dices)
 
         elif event.key == pygame.K_ESCAPE: # pylint: disable=no-member
             quit_game()
-        
+
         pygame.display.flip()
 

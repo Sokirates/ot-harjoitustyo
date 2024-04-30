@@ -24,12 +24,11 @@ class GameTurn:
         self.dices = [Dice(i*100 + 50, 50) for i in range(5)]
     
     def throw_dices(self):
-        if self.throws_left <= 0:
-            return None
-        self.throws_left -= 3
+        self.throws_left -= 1
         
         for dice in self.dices:
-            dice.roll()
+            if not dice.locked:
+                dice.roll()
     
     def lock_dice(self, event):
         if event.key == pygame.K_RETURN: # pylint: disable=no-member  
