@@ -2,6 +2,26 @@ import entities.points
 import pygame
 import sys
 
+pistetaulukko = {
+            "ones" : "",
+            "twos" : "", 
+            "threes" : "", 
+            "fours" : "", 
+            "fives" : "", 
+            "sixes": "",
+            "subtotal":"",
+            "bonus": "",
+            "pair": "", 
+            "two_pairs": "", 
+            "three_of_a_kind": "", 
+            "four_of_a_kind" : "", 
+            "small_straight" : "", 
+            "large_straight" : "", 
+            "full_house" : "", 
+            "chance" : "", 
+            "yatzy" : ""
+        }
+
 
 def draw_start_screen(screen, font_large, font_small, width):
     screen.fill((255, 255, 255))
@@ -101,29 +121,67 @@ def draw_game_screen(screen, font_small, dices, throws_left=None):
     screen.blit(text_hold_dice, (40, 130))
 
     text_y_position = 170
-    for i in range(1, 7):
-        text_points_1_6 = font_small.render(f"{i} ({i}):", True, (0, 0, 0))
-        screen.blit(text_points_1_6, (50, text_y_position))
+    texts_points_1 = ["1(1):",
+                      "2(2):",
+                      "3(3):",
+                      "4(4): ",
+                      "5(5): ",
+                      "6(6): ",
+                      "Välisumma: ",
+                      f"Bonus: {pistetaulukko['bonus']}"
+                      ]
+    text_y_position = 170
+    for text in texts_points_1:
+        text_rendered = font_small.render(text, True, (0, 0, 0))
+        screen.blit(text_rendered, (50, text_y_position))
         text_y_position += 35
-    text_valisumma = font_small.render("Välisumma:", True, (0, 0, 0))
-    screen.blit(text_valisumma, (50, text_y_position))
-    text_bonus = font_small.render("Bonus:", True, (0, 0, 0))
-    screen.blit(text_bonus, (50, text_y_position + 35))
 
+    text_y_position = 170
+    texts_points_1 = [f"{pistetaulukko['ones']}",
+                      f"{pistetaulukko['twos']}",
+                      f"{pistetaulukko['threes']}",
+                      f"{pistetaulukko['fours']}",
+                      f"{pistetaulukko['fives']}",
+                      f"{pistetaulukko['sixes']}",
+                      f"{pistetaulukko['subtotal']}",
+                      f"{pistetaulukko['bonus']}",
+                      ]
+    text_y_position = 170
+    for text in texts_points_1:
+        text_rendered = font_small.render(text, True, (0, 0, 0))
+        screen.blit(text_rendered, (120, text_y_position))
+        text_y_position += 35
+    
     texts_points_2 = ["Yksi pari (q):",
                       "Kaksi paria (w):",
                       "Kolmoisluku (e):",
-                      "Neloisluku (r):",
+                      "Neloisluku (r): ",
                       "Pieni suora (t):",
                       "Suuri suora (y):",
                       "Täysikäsi (u):",
-                      "Sattuma (i):",
-                      "Yatzy (o):"
+                      "Sattuma (i):  ",
+                      "Yatzy (o):"    
                       ]
     text_y_position = 170
     for text in texts_points_2:
         text_rendered = font_small.render(text, True, (0, 0, 0))
         screen.blit(text_rendered, (300, text_y_position))
+        text_y_position += 30
+    
+    texts_points_3 = [f"{pistetaulukko['pair']}",
+                      f"{pistetaulukko['two_pairs']}",
+                      f"{pistetaulukko['three_of_a_kind']}",
+                      f"{pistetaulukko['four_of_a_kind']}",
+                      f"{pistetaulukko['small_straight']}",
+                      f"{pistetaulukko['large_straight']}",
+                      f"{pistetaulukko['full_house']}",
+                      f"{pistetaulukko['chance']}",
+                      f"{pistetaulukko['yatzy']}"
+                      ]
+    text_y_position = 170
+    for text in texts_points_3:
+        text_rendered = font_small.render(text, True, (0, 0, 0))
+        screen.blit(text_rendered, (500, text_y_position))
         text_y_position += 30
 
     pygame.display.flip()
@@ -135,6 +193,7 @@ def draw_ones_points(screen, font_small, dices):
     ones_score = entities.points.PointsCounter.calculate_ones(dices)
     text_rendered = font_small.render(f"{ones_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (120, 170))
+    pistetaulukko['ones'] = ones_score
     pygame.display.flip()
 
 
@@ -142,6 +201,7 @@ def draw_twos_points(screen, font_small, dices):
     twos_score = entities.points.PointsCounter.calculate_twos(dices)
     text_rendered = font_small.render(f"{twos_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (120, 205))
+    pistetaulukko['twos'] = twos_score
     pygame.display.flip()
 
 
@@ -149,6 +209,7 @@ def draw_threes_points(screen, font_small, dices):
     threes_score = entities.points.PointsCounter.calculate_threes(dices)
     text_rendered = font_small.render(f"{threes_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (120, 240))
+    pistetaulukko['threes'] = threes_score
     pygame.display.flip()
 
 
@@ -156,6 +217,7 @@ def draw_fours_points(screen, font_small, dices):
     fours_score = entities.points.PointsCounter.calculate_fours(dices)
     text_rendered = font_small.render(f"{fours_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (120, 275))
+    pistetaulukko['fours'] = fours_score
     pygame.display.flip()
 
 
@@ -163,6 +225,7 @@ def draw_fives_points(screen, font_small, dices):
     fives_score = entities.points.PointsCounter.calculate_fives(dices)
     text_rendered = font_small.render(f"{fives_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (120, 310))
+    pistetaulukko['fives'] = fives_score
     pygame.display.flip()
 
 
@@ -170,6 +233,7 @@ def draw_sixes_points(screen, font_small, dices):
     sixes_score = entities.points.PointsCounter.calculate_sixes(dices)
     text_rendered = font_small.render(f"{sixes_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (120, 345))
+    pistetaulukko['sixes'] = sixes_score
     pygame.display.flip()
 
 
@@ -177,6 +241,7 @@ def draw_pair_points(screen, font_small, dices):
     pair_score = entities.points.PointsCounter.calculate_pair(dices)
     text_rendered = font_small.render(f"{pair_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (500, 170))
+    pistetaulukko['pair'] = pair_score
     pygame.display.flip()
 
 
@@ -184,6 +249,7 @@ def draw_two_pairs_points(screen, font_small, dices):
     two_pair_score = entities.points.PointsCounter.calculate_two_pairs(dices)
     text_rendered = font_small.render(f"{two_pair_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (500, 200))
+    pistetaulukko["two_pairs"] = two_pair_score
     pygame.display.flip()
 
 
@@ -192,6 +258,7 @@ def draw_three_of_a_kind_points(screen, font_small, dices):
         dices)
     text_rendered = font_small.render(f"{three_kind_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (500, 230))
+    pistetaulukko["three_of_a_kind"] = three_kind_score
     pygame.display.flip()
 
 
@@ -200,6 +267,7 @@ def draw_four_of_a_kind_points(screen, font_small, dices):
         dices)
     text_rendered = font_small.render(f"{four_kind_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (500, 260))
+    pistetaulukko["four_of_a_kind"] = four_kind_score
     pygame.display.flip()
 
 
@@ -208,6 +276,7 @@ def draw_small_straight_points(screen, font_small, dices):
         dices)
     text_rendered = font_small.render(f"{small_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (500, 290))
+    pistetaulukko["small_straight"] = small_score
     pygame.display.flip()
 
 
@@ -216,6 +285,7 @@ def draw_large_straight_points(screen, font_small, dices):
         dices)
     text_rendered = font_small.render(f"{large_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (500, 320))
+    pistetaulukko["large_straight"] = large_score
     pygame.display.flip()
 
 
@@ -224,6 +294,7 @@ def draw_full_house_points(screen, font_small, dices):
         dices)
     text_rendered = font_small.render(f"{full_house_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (500, 350))
+    pistetaulukko["full_house"] = full_house_score
     pygame.display.flip()
 
 
@@ -231,6 +302,7 @@ def draw_chance_points(screen, font_small, dices):
     chance_score = entities.points.PointsCounter.calculate_chance(dices)
     text_rendered = font_small.render(f"{chance_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (500, 380))
+    pistetaulukko["chance"] = chance_score
     pygame.display.flip()
 
 
@@ -238,4 +310,14 @@ def draw_yatzy_points(screen, font_small, dices):
     yatzy_score = entities.points.PointsCounter.calculate_yatzy(dices)
     text_rendered = font_small.render(f"{yatzy_score}", True, (0, 0, 0))
     screen.blit(text_rendered, (500, 410))
+    pistetaulukko["yatzy"] = yatzy_score
     pygame.display.flip()
+
+def draw_bonus_points(screen, font_small):
+    if pistetaulukko['ones']+pistetaulukko["twos"]+pistetaulukko["threes"]+pistetaulukko["fours"]+pistetaulukko["fives"]+pistetaulukko["sixes"] >= 63:
+        pistetaulukko["bonus"] = 50
+    else:
+        pistetaulukko["bonus"] = 0
+    pygame.display.flip()
+    
+    

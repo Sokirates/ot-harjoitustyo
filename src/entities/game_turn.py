@@ -11,6 +11,23 @@ class GameTurn:
         """
         self.throws_left = 3
         self.dices = [Dice(i*100 + 50, 50) for i in range(5)]
+        self.points = {
+            "ones" : None,
+            "twos" : None, 
+            "threes" : None, 
+            "fours" : None, 
+            "fives" : None, 
+            "sixes": None,
+            "pair": None, 
+            "two_pairs": None, 
+            "three_of_a_kind": None, 
+            "four_of_a_kind" : None, 
+            "small_straight" : None, 
+            "large_straight" : None, 
+            "full_house" : None, 
+            "chance" : None, 
+            "yatzy" : None
+        }
 
     def throw_dices(self):
         """
