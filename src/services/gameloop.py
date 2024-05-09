@@ -153,7 +153,7 @@ class GameLoop:
             draw_yatzy_points(self.screen, self.font_small, self.turn.dices)
             choose15 -1
 
-        elif choose1 == choose2 == choose3 == choose4 == choose5 == choose6 == 0:
+        elif event.key == pygame.K_b:
             draw_bonus_points(self.screen, self.font_small)
 
         elif event.key == pygame.K_ESCAPE: # pylint: disable=no-member

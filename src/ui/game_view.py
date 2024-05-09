@@ -143,8 +143,6 @@ def draw_game_screen(screen, font_small, dices, throws_left=None):
                       f"{pistetaulukko['fours']}",
                       f"{pistetaulukko['fives']}",
                       f"{pistetaulukko['sixes']}",
-                      f"{pistetaulukko['subtotal']}",
-                      f"{pistetaulukko['bonus']}",
                       ]
     text_y_position = 170
     for text in texts_points_1:
@@ -314,10 +312,14 @@ def draw_yatzy_points(screen, font_small, dices):
     pygame.display.flip()
 
 def draw_bonus_points(screen, font_small):
-    if pistetaulukko['ones']+pistetaulukko["twos"]+pistetaulukko["threes"]+pistetaulukko["fours"]+pistetaulukko["fives"]+pistetaulukko["sixes"] >= 63:
-        pistetaulukko["bonus"] = 50
+    if int(pistetaulukko['ones'])+int(pistetaulukko["twos"])+int(pistetaulukko["threes"])+int(pistetaulukko["fours"])+int(pistetaulukko["fives"])+int(pistetaulukko["sixes"]) >= 63:
+        bonus_score= 50
     else:
-        pistetaulukko["bonus"] = 0
+        bonus_score = 0
+    pistetaulukko["bonus"] = bonus_score
+    text_rendered = font_small.render(f"{bonus_score}", True, (0, 0, 0))
+    screen.blit(text_rendered, (200, 410))
+    
     pygame.display.flip()
     
     
