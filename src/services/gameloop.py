@@ -44,7 +44,8 @@ class GameLoop:
             "large_straight" : "", 
             "full_house" : "", 
             "chance" : "", 
-            "yatzy" : ""
+            "yatzy" : "",
+            "total": ""
         }
 
         self.turn = GameTurn()

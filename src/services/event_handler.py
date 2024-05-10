@@ -29,6 +29,7 @@ class EventHandler:
     def handle_game_running_events(self, event, dices, scoreboard, game_turn):
         scoreboard['bonus'] = PointsCounter.calculate_bonus(scoreboard)
         scoreboard['subtotal'] = PointsCounter.calculate_subtotal(scoreboard)
+        scoreboard['total'] = PointsCounter.calculate_total(scoreboard)
 
         if event.key == pygame.K_ESCAPE: # pylint: disable=no-member
             quit_game()

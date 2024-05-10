@@ -115,7 +115,8 @@ class ScreenDrawer:
                         "5(5): ",
                         "6(6): ",
                         f"Välisumma:{scoreboard['subtotal']}",
-                        f"Bonus:{scoreboard['bonus']}"
+                        f"Bonus:{scoreboard['bonus']}",
+                        f"Total: {scoreboard['total']}"
                         ]
         text_y_position = 170
         for text in texts_points_1:
@@ -172,4 +173,5 @@ class ScreenDrawer:
         pygame.display.flip()
         global game_running
         game_running = True
+
 

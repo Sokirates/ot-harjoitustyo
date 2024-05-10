@@ -121,35 +121,33 @@ class PointsCounter:
 
     @staticmethod
     def calculate_subtotal(scoreboard):
-        if (scoreboard.get('ones', '') != '' and
-        scoreboard.get('twos', '') != '' and
-        scoreboard.get('threes', '') != '' and
-        scoreboard.get('fours', '') != '' and
-        scoreboard.get('fives', '') != '' and
-        scoreboard.get('sixes', '') != '' and
-        scoreboard.get('bonus', '') != ''):
-            return (int(scoreboard['ones'])
-                +int(scoreboard["twos"])
-                +int(scoreboard["threes"])
-                +int(scoreboard["fours"])
-                +int(scoreboard["fives"])
-                +int(scoreboard["sixes"])
-                +int(scoreboard['bonus']))
-        return ""
+        subtotal = 0
+
+        for i, (_, val) in enumerate(scoreboard.items()):
+            if i < 6 and val != '':
+                subtotal += int(val)
+
+        return subtotal
+
 
     @staticmethod
     def calculate_bonus(scoreboard):
-        if (scoreboard.get('ones', '') != '' and
-        scoreboard.get('twos', '') != '' and
-        scoreboard.get('threes', '') != '' and
-        scoreboard.get('fours', '') != '' and
-        scoreboard.get('fives', '') != '' and
-        scoreboard.get('sixes', '') != ''):
-            if (int(scoreboard['ones'])
-                    +int(scoreboard["twos"])
-                    +int(scoreboard["threes"])
-                    +int(scoreboard["fours"])
-                    +int(scoreboard["fives"])
-                    +int(scoreboard["sixes"])) >= 63:
-                return 50
-        return 0
+        subtotal = PointsCounter.calculate_subtotal(scoreboard)
+
+        if subtotal != 0 and subtotal >= 63:
+            return 50
+        else:
+            return 0
+
+
+    @staticmethod
+    def calculate_total(scoreboard):
+        total = 0
+
+        for i, (_, val) in enumerate(scoreboard.items()):
+            if 7 < i < 17 and val != '':
+                total += int(val)
+
+        return total+ PointsCounter.calculate_subtotal(scoreboard)
+
+    
