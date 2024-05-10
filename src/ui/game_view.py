@@ -93,18 +93,19 @@ class ScreenDrawer:
         self._screen.blit(quit_game_text, (500 -
                     quit_game_text.get_width() // 2, 450))
 
+        
+        text_rolls_left = self._font_small.render(
+            f"Heittoja jäljellä: {throws_left}", True, (255, 0, 0))
+        self._screen.blit(text_rolls_left, (400, 10))
+        
         if throws_left == 0:
             text_rolls_left = self._font_small.render(
-                "Aloita uusi kierros (ENTER)", True, (255, 0, 0))   
-            self._screen.blit(text_rolls_left, (340, 10))
+                "Valitse haluama kohta pistetaulukosta ja paina ENTER", True, (255, 0, 0))   
+            self._screen.blit(text_rolls_left, (40, 130))
         else:
-            text_rolls_left = self._font_small.render(
-                f"Heittoja jäljellä: {throws_left}", True, (255, 0, 0))
-            self._screen.blit(text_rolls_left, (400, 10))
-
-        text_hold_dice = self._font_small.render(
-            "Lukitse haluamia noppia (Paina ENTER)", True, (0, 0, 255))
-        self._screen.blit(text_hold_dice, (40, 130))
+            text_hold_dice = self._font_small.render(
+                "Lukitse haluamia noppia (Paina ENTER)", True, (0, 0, 255))
+            self._screen.blit(text_hold_dice, (40, 130))
 
         text_y_position = 170
         texts_points_1 = ["1(1):",
@@ -172,11 +173,3 @@ class ScreenDrawer:
         global game_running
         game_running = True
 
-    def draw_points(self, scoreboard):
-        for i, (_, val) in enumerate(scoreboard.items()):
-            text_redered = self._font_small.render(f"{val}", True, (0, 0, 0))
-            if i < 8:
-                self._screen.blit(text_redered, (1000, 170 + i*35))
-            else:
-                self._screen.blit(text_redered, (1000, 170 + (i - 8)*30))
-        pygame.display.flip()

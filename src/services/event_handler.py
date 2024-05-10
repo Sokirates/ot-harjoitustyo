@@ -99,9 +99,6 @@ class EventHandler:
                 scoreboard['bonus'] = PointsCounter.calculate_bonus(scoreboard)
                 game_turn.points_assigned = True
 
-            if game_turn.points_assigned:
-                self._drawer.draw_points(scoreboard)
-
         elif game_turn.throws_left <= 0 and event.key == pygame.K_RETURN: # pylint: disable=no-member
             new_turn = GameTurn()
             self._drawer.draw_game_screen(new_turn.dices, new_turn.throws_left, scoreboard)
