@@ -12,7 +12,7 @@ def start_game(screen, width):
     font_large = pygame.font.SysFont("Arial", 36)
     font_small = pygame.font.SysFont("Arial", 24)
 
-    screen_drawer = ScreenDrawer(screen, font_large, font_small)
+    screen_drawer = ScreenDrawer(screen, font_large, font_small, width)
     screen_drawer.draw_start_screen()
 
     event_handler = EventHandler(screen_drawer)

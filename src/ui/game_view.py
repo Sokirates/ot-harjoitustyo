@@ -15,7 +15,7 @@ class ScreenDrawer:
         self._font_large = font_large
         self._font_small = font_small
         self._width = width
-    
+
     def draw_start_screen(self):
         self._screen.fill((255, 255, 255))
 
@@ -78,7 +78,7 @@ class ScreenDrawer:
                     start_game_text.get_width() // 2, 400))
 
         pygame.display.flip()
-    
+
     def draw_game_screen(self, dices, throws_left=None, scoreboard=""):
         self._screen.fill((255, 255, 255))
         for dice in dices:
@@ -135,7 +135,7 @@ class ScreenDrawer:
             text_rendered = self._font_small.render(text, True, (0, 0, 0))
             self._screen.blit(text_rendered, (120, text_y_position))
             text_y_position += 35
-        
+
         texts_points_2 = ["Yksi pari (q):",
                         "Kaksi paria (w):",
                         "Kolmoisluku (e):",
@@ -151,7 +151,7 @@ class ScreenDrawer:
             text_rendered = self._font_small.render(text, True, (0, 0, 0))
             self._screen.blit(text_rendered, (300, text_y_position))
             text_y_position += 30
-        
+
         texts_points_3 = [f"{scoreboard['pair']}",
                         f"{scoreboard['two_pairs']}",
                         f"{scoreboard['three_of_a_kind']}",
@@ -171,7 +171,7 @@ class ScreenDrawer:
         pygame.display.flip()
         global game_running
         game_running = True
-    
+
     def draw_points(self, scoreboard):
         for i, (_, val) in enumerate(scoreboard.items()):
             text_redered = self._font_small.render(f"{val}", True, (0, 0, 0))
