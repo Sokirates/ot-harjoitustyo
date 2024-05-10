@@ -121,13 +121,21 @@ class PointsCounter:
 
     @staticmethod
     def calculate_subtotal(scoreboard):
-        return (int(scoreboard['ones'])
+        if (scoreboard.get('ones', '') != '' and
+        scoreboard.get('twos', '') != '' and
+        scoreboard.get('threes', '') != '' and
+        scoreboard.get('fours', '') != '' and
+        scoreboard.get('fives', '') != '' and
+        scoreboard.get('sixes', '') != '' and
+        scoreboard.get('bonus', '') != ''):
+            return (int(scoreboard['ones'])
                 +int(scoreboard["twos"])
                 +int(scoreboard["threes"])
                 +int(scoreboard["fours"])
                 +int(scoreboard["fives"])
                 +int(scoreboard["sixes"])
                 +int(scoreboard['bonus']))
+        return ""
 
     @staticmethod
     def calculate_bonus(scoreboard):
