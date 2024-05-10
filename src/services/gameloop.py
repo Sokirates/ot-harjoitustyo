@@ -17,18 +17,14 @@ def start_game(screen, width):
 
     event_handler = EventHandler(screen_drawer)
 
-    game_loop = GameLoop(screen, game_running, clock, font_small, font_large, width, event_handler)
+    game_loop = GameLoop(game_running, clock, event_handler)
 
     game_loop.start_game_loop()
 
 class GameLoop:
-    def __init__(self, screen, game_running, clock, font_small, font_large, width, event_handler):
-        self.screen = screen
+    def __init__(self, game_running, clock, event_handler):
         self.game_running = game_running
         self.clock = clock
-        self.font_small = font_small
-        self.font_large = font_large
-        self.width = width
         self.event_handler = event_handler
 
         self.scoreboard = {
