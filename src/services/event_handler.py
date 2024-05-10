@@ -29,6 +29,7 @@ class EventHandler:
     def handle_game_running_events(self, event, dices, scoreboard, game_turn):
         if event.key == pygame.K_ESCAPE: # pylint: disable=no-member
             quit_game()
+
         elif game_turn.throws_left <= 0 and not game_turn.points_assigned:
             if event.key == pygame.K_1 and scoreboard['ones'] == "": # pylint: disable=no-member
                 scoreboard['ones'] = PointsCounter.calculate_ones(dices)
@@ -88,6 +89,10 @@ class EventHandler:
 
             elif event.key == pygame.K_o and scoreboard['yatzy'] == "": # pylint: disable=no-member
                 scoreboard['yatzy'] = PointsCounter.calculate_yatzy(dices)
+                game_turn.points_assigned = True
+
+            elif event.key == pygame.K_v and scoreboard['subtotal'] == "": # pylint: disable=no-member
+                scoreboard['subtotal'] = PointsCounter.calculate_subtotal(scoreboard)
                 game_turn.points_assigned = True
 
             elif event.key == pygame.K_b and scoreboard['bonus'] == "": # pylint: disable=no-member

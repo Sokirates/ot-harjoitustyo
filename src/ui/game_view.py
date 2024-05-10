@@ -113,8 +113,8 @@ class ScreenDrawer:
                         "4(4): ",
                         "5(5): ",
                         "6(6): ",
-                        "Välisumma: ",
-                        f"Bonus: {scoreboard['bonus']}"
+                        f"Välisumma:{scoreboard['subtotal']}",
+                        f"Bonus:{scoreboard['bonus']}"
                         ]
         text_y_position = 170
         for text in texts_points_1:

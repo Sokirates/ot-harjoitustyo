@@ -120,6 +120,16 @@ class PointsCounter:
         return 0
 
     @staticmethod
+    def calculate_subtotal(scoreboard):
+        return (int(scoreboard['ones'])
+                +int(scoreboard["twos"])
+                +int(scoreboard["threes"])
+                +int(scoreboard["fours"])
+                +int(scoreboard["fives"])
+                +int(scoreboard["sixes"])
+                +int(scoreboard['bonus']))
+
+    @staticmethod
     def calculate_bonus(scoreboard):
         if (int(scoreboard['ones'])
                 +int(scoreboard["twos"])
