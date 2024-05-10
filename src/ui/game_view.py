@@ -176,7 +176,7 @@ class ScreenDrawer:
         for i, (_, val) in enumerate(scoreboard.items()):
             text_redered = self._font_small.render(f"{val}", True, (0, 0, 0))
             if i < 8:
-                self._screen.blit(text_redered, (120, 170 + i*35))
+                self._screen.blit(text_redered, (1000, 170 + i*35))
             else:
-                self._screen.blit(text_redered, (500, 170 + (i - 8)*30))
+                self._screen.blit(text_redered, (1000, 170 + (i - 8)*30))
         pygame.display.flip()
