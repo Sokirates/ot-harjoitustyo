@@ -118,3 +118,14 @@ class PointsCounter:
             if sum(1 for dice in dices if dice.value == value) == 5:
                 return 50
         return 0
+
+    @staticmethod
+    def calculate_bonus(scoreboard):
+        if (int(scoreboard['ones'])
+                +int(scoreboard["twos"])
+                +int(scoreboard["threes"])
+                +int(scoreboard["fours"])
+                +int(scoreboard["fives"])
+                +int(scoreboard["sixes"])) >= 63:
+            return 50
+        return 0

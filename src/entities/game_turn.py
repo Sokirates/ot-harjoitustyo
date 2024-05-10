@@ -11,6 +11,7 @@ class GameTurn:
         """
         self.throws_left = 3
         self.dices = [Dice(i*100 + 50, 50) for i in range(5)]
+        self.points_assigned = False
 
     def throw_dices(self):
         """
