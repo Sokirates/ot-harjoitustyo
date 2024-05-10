@@ -27,6 +27,7 @@ class EventHandler:
         return game_running
 
     def handle_game_running_events(self, event, dices, scoreboard, game_turn):
+        scoreboard['bonus'] = PointsCounter.calculate_bonus(scoreboard)
         if event.key == pygame.K_ESCAPE: # pylint: disable=no-member
             quit_game()
 
@@ -112,7 +113,7 @@ class EventHandler:
             x, y = pygame.mouse.get_pos()
             for dice in game_turn.dices:
                 if dice.x <= x <= dice.x + dice.size and dice.y <= y <= dice.y + dice.size:
-                    dice.locked = not dice.locked  # Vaihda nopan lukitusasetus
+                    dice.locked = not dice.locked
                     self._drawer.draw_game_screen(dices, game_turn.throws_left, scoreboard)
 
         pygame.display.flip()

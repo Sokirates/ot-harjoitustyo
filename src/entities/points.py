@@ -131,11 +131,17 @@ class PointsCounter:
 
     @staticmethod
     def calculate_bonus(scoreboard):
-        if (int(scoreboard['ones'])
-                +int(scoreboard["twos"])
-                +int(scoreboard["threes"])
-                +int(scoreboard["fours"])
-                +int(scoreboard["fives"])
-                +int(scoreboard["sixes"])) >= 63:
-            return 50
+        if (scoreboard.get('ones', '') != '' and
+        scoreboard.get('twos', '') != '' and
+        scoreboard.get('threes', '') != '' and
+        scoreboard.get('fours', '') != '' and
+        scoreboard.get('fives', '') != '' and
+        scoreboard.get('sixes', '') != ''):
+            if (int(scoreboard['ones'])
+                    +int(scoreboard["twos"])
+                    +int(scoreboard["threes"])
+                    +int(scoreboard["fours"])
+                    +int(scoreboard["fives"])
+                    +int(scoreboard["sixes"])) >= 63:
+                return 50
         return 0
