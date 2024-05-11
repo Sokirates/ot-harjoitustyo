@@ -9,10 +9,33 @@ def quit_game():
     sys.exit()
 
 class EventHandler:
+    """
+    Tapahtumankäsittelijäluokka, joka käsittelee tapahtumia ja päivittää pelitilaa.
+
+    Attributes:
+        drawer: Näytön piirtäjäolio, joka päivittää graafista näkymää.
+    """
     def __init__(self, drawer):
+        """
+        Alustaa tapahtumankäsittelijäolion.
+
+        Args:
+            drawer: Näytön piirtäjäolio
+        """
         self._drawer = drawer
 
     def handle_game_not_running_events(self, event, dices, throws_left, scoreboard):
+        """
+        Käsittelee tapahtumia, kun peli ei ole käynnissä.
+
+        Args:
+            event: Tapahtuma, jota käsitellään kun käyttäjä painaa esim. SPACE.
+            dices: Lista nopista.
+            throws_left: Jäljellä olevien heittojen määrä.
+            scoreboard: Pistelista.
+        Returns:
+            bool: onko peli käynnissä vai ei
+        """
         game_running = False
         if event.key == pygame.K_SPACE: # pylint: disable=no-member
             self._drawer.draw_game_screen(dices, throws_left, scoreboard)
@@ -27,6 +50,18 @@ class EventHandler:
         return game_running
 
     def handle_game_running_events(self, event, dices, scoreboard, game_turn):
+        """
+        Käsittelee tapahtumia, kun peli on käynnissä.
+
+        Args:
+            event: Tapahtuma, jota käsitellään, kun käyttäjä esim. heittää noppia.
+            dices: Lista nopista
+            scoreboard: Pistelista.
+            game_turn: Pelikierroksen olio
+
+        Returns:
+            GameTurn or None: Uusi pelikierros, jos kierros muuttuu, muuten None
+        """
         scoreboard['bonus'] = PointsCounter.calculate_bonus(scoreboard)
         scoreboard['subtotal'] = PointsCounter.calculate_subtotal(scoreboard)
         scoreboard['total'] = PointsCounter.calculate_total(scoreboard)

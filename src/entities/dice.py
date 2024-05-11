@@ -5,13 +5,22 @@ import pygame
 class Dice:
     """
     Luokka yksittäiselle nopalle
+
+    Attributes:
+            x: Nopan x-koordinaatti peliruudulla.
+            y: Nopan y-koordinaatti peliruudulla.
+            size: Nopan koko peliruudulla.
+            value: Nopan silmäluku.
+            locked: onko noppa lukittu vai ei 
     """
     def __init__(self, x=0, y=0, size=70):
         """
+        Alustaa nopan.
+
         Args:
-            - x: Nopan x-koordinaatti peliruudulla
-            - y: Nopan y-koordinaatti peliruudulla
-            - size: Nopan koko peliruudulla
+            x: Nopan x-koordinaatti peliruudulla.
+            y: Nopan y-koordinaatti peliruudulla.
+            size: Nopan koko peliruudulla.
         """
         self.x = x
         self.y = y
@@ -21,13 +30,17 @@ class Dice:
 
     def roll(self):
         """
-        Nopan heittäminen
+        Nopan heittäminen, asettaen satunnaisesti silmäluvun välillä 1-6.
         """
         self.value = random.randint(1, 6)
 
     def draw(self, screen, font):
         """
-        Nopan piirtäminen
+        Nopan piirtäminen peliruudulle.
+
+        Args:
+            screen: Peliruutu, johon piirretään nopat
+            font: Fontti noppien piirämiseen.
         """
         pygame.draw.rect(screen, (0, 0, 0),
                          (self.x, self.y, self.size, self.size), 2)

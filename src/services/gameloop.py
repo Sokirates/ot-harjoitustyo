@@ -6,6 +6,15 @@ from entities.game_turn import GameTurn # pylint: disable=import-error
 from services.event_handler import EventHandler # pylint: disable=import-error
 
 def start_game(screen, width):
+    """
+    Aloittaa pelin suorituksen käyttöliittymän ruudulla `screen` ja 
+    määritellyllä leveydellä `width`.
+
+    Args:
+        screen: Peliruutu, jossa peli piirretään.
+        width: Peliruudun leveys pikseleinä.
+
+    """
     game_running = False
     clock = pygame.time.Clock()
 
@@ -22,35 +31,50 @@ def start_game(screen, width):
     game_loop.start_game_loop()
 
 class GameLoop:
+    """
+    Pelisilmukka, joka hallinnoi pelin suoritusta ja tapahtumia.
+    """
+
     def __init__(self, game_running, clock, event_handler):
+        """
+        Alustaa pelisilmukan.
+
+        Args:
+            game_running: onko peli käynnissä vai ei.
+            clock: Pelin kelloluokka.
+            event_handler: Tapahtumankäsittelijäluokka.
+        """
         self.game_running = game_running
         self.clock = clock
         self.event_handler = event_handler
 
         self.scoreboard = {
-            "ones" : "",
-            "twos" : "", 
-            "threes" : "", 
-            "fours" : "", 
-            "fives" : "", 
+            "ones": "",
+            "twos": "", 
+            "threes": "", 
+            "fours": "", 
+            "fives": "", 
             "sixes": "",
-            "subtotal":"",
+            "subtotal": "",
             "bonus": "",
             "pair": "", 
             "two_pairs": "", 
             "three_of_a_kind": "", 
-            "four_of_a_kind" : "", 
-            "small_straight" : "", 
-            "large_straight" : "", 
-            "full_house" : "", 
-            "chance" : "", 
-            "yatzy" : "",
+            "four_of_a_kind": "", 
+            "small_straight": "", 
+            "large_straight": "", 
+            "full_house": "", 
+            "chance": "", 
+            "yatzy": "",
             "total": ""
         }
 
         self.turn = GameTurn()
 
     def start_game_loop(self):
+        """
+        Käynnistää pelisilmukan, joka odottaa tapahtumia ja päivittää pelitilaa.
+        """
         while True:
             for event in pygame.event.get():
                 if event.type != pygame.KEYDOWN: # pylint: disable=no-member

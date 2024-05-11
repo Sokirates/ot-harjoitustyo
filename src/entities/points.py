@@ -1,6 +1,19 @@
 class PointsCounter:
+    """
+    Pisteidenlaskuriluokka, joka sisältää pistelaskentafunktiot pelin 
+    pisteiden laskemiseen.
+    """
     @staticmethod
     def calculate_ones(dices):
+        """
+        Laskee ykkästen summan
+
+        Args:
+            dices: Lista nopista.
+        
+        Returns:
+            Ykkösten summa.
+        """
         ones_count = 0
         for dice in dices:
             if dice.value == 1:
@@ -9,6 +22,15 @@ class PointsCounter:
 
     @staticmethod
     def calculate_twos(dices):
+        """
+        Laskee kakkosten summan.
+
+        Args:
+            dices: Lista nopista.
+        
+        Returns:
+            kakkosten summa.
+        """
         twos_count = 0
         for dice in dices:
             if dice.value == 2:
@@ -17,6 +39,9 @@ class PointsCounter:
 
     @staticmethod
     def calculate_threes(dices):
+        """
+        Laskee kolmosten summan.
+        """
         threes_count = 0
         for dice in dices:
             if dice.value == 3:
@@ -25,6 +50,9 @@ class PointsCounter:
 
     @staticmethod
     def calculate_fours(dices):
+        """
+        Laskee nelosten summan.
+        """
         fours_count = 0
         for dice in dices:
             if dice.value == 4:
@@ -33,6 +61,9 @@ class PointsCounter:
 
     @staticmethod
     def calculate_fives(dices):
+        """
+        Laskee vitosten summan.
+        """
         fives_count = 0
         for dice in dices:
             if dice.value == 5:
@@ -41,6 +72,9 @@ class PointsCounter:
 
     @staticmethod
     def calculate_sixes(dices):
+        """
+        Laskee kutosten summan.
+        """
         sixes_count = 0
         for dice in dices:
             if dice.value == 6:
@@ -49,6 +83,9 @@ class PointsCounter:
 
     @staticmethod
     def calculate_pair(dices):
+        """
+        Laskee parin summan.
+        """
         for value in range(6, 0, -1):
             count = sum(1 for dice in dices if dice.value == value)
             if count >= 2:
@@ -57,6 +94,9 @@ class PointsCounter:
 
     @staticmethod
     def calculate_two_pairs(dices):
+        """
+        Laskee kahden parin summan.
+        """
         pairs = []
         for value in range(6, 0, -1):
             count = sum(1 for dice in dices if dice.value == value)
@@ -68,6 +108,9 @@ class PointsCounter:
 
     @staticmethod
     def calculate_three_of_a_kind(dices):
+        """
+        Laskee kolmoen saman summan.
+        """
         for value in range(1, 7):
             count = sum(1 for dice in dices if dice.value == value)
             if count >= 3:
@@ -76,6 +119,9 @@ class PointsCounter:
 
     @staticmethod
     def calculate_four_of_a_kind(dices):
+        """
+        Laskee neljän saman summan.
+        """
         for value in range(1, 7):
             count = sum(1 for dice in dices if dice.value == value)
             if count >= 4:
@@ -85,6 +131,9 @@ class PointsCounter:
 
     @staticmethod
     def calculate_small_straight(dices):
+        """
+        Laskee pieni suoran summan.
+        """
         values = sorted(dice.value for dice in dices)
         if values == [1, 2, 3, 4, 5]:
             return 15
@@ -92,6 +141,9 @@ class PointsCounter:
 
     @staticmethod
     def calculate_large_straight(dices):
+        """
+        Laskee suuri suoran summan.
+        """
         values = sorted(dice.value for dice in dices)
         if values == [2, 3, 4, 5, 6]:
             return 20
@@ -99,6 +151,9 @@ class PointsCounter:
 
     @staticmethod
     def calculate_full_house(dices):
+        """
+        Laskee täyskäden summan.
+        """
         for value in range(1, 7):
             count1 = sum(1 for dice in dices if dice.value == value)
             if count1 == 3:
@@ -110,10 +165,19 @@ class PointsCounter:
 
     @staticmethod
     def calculate_chance(dices):
+        """
+        Laskee sattuman summan.
+        """
         return sum(dice.value for dice in dices)
 
     @staticmethod
     def calculate_yatzy(dices):
+        """
+        Tutkii onko viisi samaa.
+
+        Returns:
+            palauttaa 50 jos viisi samaa muuten 0.
+        """
         for value in range(1, 7):
             if sum(1 for dice in dices if dice.value == value) == 5:
                 return 50
@@ -121,6 +185,9 @@ class PointsCounter:
 
     @staticmethod
     def calculate_subtotal(scoreboard):
+        """
+        Laskee pistetaulukosta 1-6 ja bonuksen summan.
+        """
         subtotal = 0
 
         for i, (_, val) in enumerate(scoreboard.items()):
@@ -132,6 +199,12 @@ class PointsCounter:
 
     @staticmethod
     def calculate_bonus(scoreboard):
+        """
+        Laskee pistetaulukosta 1-6 summan, jos summana on suurempi kuin 63 niin saa 50.
+
+        Returns:
+            palauttaa 50, jos pistetaulukosta 1-6 summa >= 63 muuten 0 
+        """
         subtotal = PointsCounter.calculate_subtotal(scoreboard)
 
         if subtotal != 0 and subtotal >= 63:
@@ -142,6 +215,9 @@ class PointsCounter:
 
     @staticmethod
     def calculate_total(scoreboard):
+        """
+        Laskee kaikkien kohtien summan.
+        """
         total = 0
 
         for i, (_, val) in enumerate(scoreboard.items()):

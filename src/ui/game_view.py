@@ -4,6 +4,15 @@ import sys
 
 
 class ScreenDrawer:
+    """
+    Näytönpiirtäjäluokka, joka hallinnoi pelin näyttöjen piirtämistä.
+
+    Attributes:
+        screen: Peliruutu, jossa peli piirretään.
+        font_large: Suurkokoinen fontti näytön teksteille.
+        font_small: Pienkokoinen fontti näytön teksteille.
+        width: Peliruudun leveys
+    """
     def __init__(
             self,
             screen,
@@ -17,6 +26,9 @@ class ScreenDrawer:
         self._width = width
 
     def draw_start_screen(self):
+        """
+        Piirtää aloitusnäytön, jossa näytetään pelin aloitusohjeet.
+        """
         self._screen.fill((255, 255, 255))
 
         start_message = self._font_large.render("Yatzy", True, (0, 0, 0))
@@ -41,6 +53,9 @@ class ScreenDrawer:
         pygame.display.flip()
 
     def draw_instructions_screen(self):
+        """
+        Piirtää ohjenäytön, jossa näytetään pelin ohjeet.
+        """
         self._screen.fill((255, 255, 255))
 
         instructions_message = self._font_large.render("Ohjeet", True, (0, 0, 0))
@@ -80,6 +95,14 @@ class ScreenDrawer:
         pygame.display.flip()
 
     def draw_game_screen(self, dices, throws_left=None, scoreboard=""):
+        """
+        Piirtää pelinäytön, jossa näkyy nopat, pistetaulukko ja pelitilanteeseen liittyvät tekstit.
+        
+        Args:
+            dices: Lista nopista.
+            throws_left: Jäljellä olevien heittojen määrä
+            scoreboard: Pistetaulukko
+        """
         self._screen.fill((255, 255, 255))
         for dice in dices:
             dice.draw(self._screen, self._font_small)
@@ -175,3 +198,10 @@ class ScreenDrawer:
         game_running = True
 
 
+#    def draw_game_end_screen(self, scoreboard=""):
+#        self._screen.fill((255, 255, 255))
+#
+#        total_points_message = self._font_large.render(f"Total score: {scoreboard['total']}", True, (0, 0, 0))
+#        self._screen.blit(total_points_message, (self._width // 2 -
+#                    total_points_message.get_width() // 2, 100))
+#        pygame.display.flip()
