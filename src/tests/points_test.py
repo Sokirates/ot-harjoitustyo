@@ -32,6 +32,48 @@ class TestDice(unittest.TestCase):
         self.dices_5[3] = 2
         self.dices_5[4] = 3
 
+        self.scoreboard = {
+            "ones": "3",
+            "twos": "4",
+            "threes": "",
+            "fours": "8",
+            "fives": "15",
+            "sixes": "",
+            "subtotal": "",
+            "bonus": "",
+            "pair": "",
+            "two_pairs": "",
+            "three_of_a_kind": "",
+            "four_of_a_kind": "",
+            "small_straight": "",
+            "large_straight": "",
+            "full_house": "",
+            "chance": "",
+            "yatzy": "",
+            "total": ""
+        }
+
+        self.scoreboard_1 = {
+            "ones": "3",
+            "twos": "6",
+            "threes": "9",
+            "fours": "12",
+            "fives": "15",
+            "sixes": "18",
+            "subtotal": "63",
+            "bonus": "",
+            "pair": "10",
+            "two_pairs": "20",
+            "three_of_a_kind": "",
+            "four_of_a_kind": "16",
+            "small_straight": "",
+            "large_straight": "",
+            "full_house": "25",
+            "chance": "18",
+            "yatzy": "50",
+            "total": ""
+        }
+
     def test_calculate_ones(self):
         self.assertEqual(PointsCounter.calculate_ones(self.dices), 1)
     
@@ -53,7 +95,6 @@ class TestDice(unittest.TestCase):
     def test_calculate_pair(self):
         self.assertEqual(PointsCounter.calculate_pair(self.dices_1), 4)
         self.assertEqual(PointsCounter.calculate_pair(self.dices_3), 0)
-        
 
     def test_calculate_two_pairs(self):
         self.assertEqual(PointsCounter.calculate_two_pairs(self.dices_1), 6)
@@ -87,3 +128,15 @@ class TestDice(unittest.TestCase):
     def test_calculate_yatzy(self):
         self.assertEqual(PointsCounter.calculate_yatzy(self.dices_2), 50)
         self.assertEqual(PointsCounter.calculate_yatzy(self.dices), 0)
+
+    def test_calculate_subtotal(self):
+        self.assertEqual(PointsCounter.calculate_subtotal(self.scoreboard), 30)
+
+    def test_calculate_bonus(self):
+        self.assertEqual(PointsCounter.calculate_bonus(self.scoreboard), 0)
+        self.assertEqual(PointsCounter.calculate_bonus(self.scoreboard_1), 50)
+
+    def test_calculate_total(self):
+        self.assertEqual(PointsCounter.calculate_total(self.scoreboard), 30)
+        self.assertEqual(PointsCounter.calculate_total(self.scoreboard_1), 202)
+        
