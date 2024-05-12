@@ -48,5 +48,5 @@ Raportti generoituu _htmlcov_-hakemistoon.
 
 
 ### Releases
-[Loppupalautus](https://github.com/Sokirates/ot-harjoitustyo/releases/tag/Loppupalautus)
+[Loppupalautus](https://github.com/Sokirates/ot-harjoitustyo/releases/tag/loppupalautus)
 
