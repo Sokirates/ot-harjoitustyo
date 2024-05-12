@@ -36,19 +36,16 @@ class ScreenDrawer:
                     start_message.get_width() // 2, 100))
 
         start_game_text = self._font_small.render(
-            "Aloita peli (Paina SPACE)", True, (0, 0, 0))
-        self._screen.blit(start_game_text, (self._width // 2 -
-                    start_game_text.get_width() // 2, 200))
+            "Aloita peli (Paina SPACE)", True, (255, 0, 0))
+        self._screen.blit(start_game_text, (190, 200))
 
         see_instructions = self._font_small.render(
-            "Katso ohjeet (Paina 1)", True, (0, 0, 0))
-        self._screen.blit(see_instructions, (self._width // 2 -
-                    start_game_text.get_width() // 2, 300))
+            "Katso ohjeet (Paina 1)", True, (0, 0, 255))
+        self._screen.blit(see_instructions, (190, 250))
 
         quit_game_text = self._font_small.render(
             "Lopeta peli (Paina ESC)", True, (0, 0, 0))
-        self._screen.blit(quit_game_text, (self._width // 2 -
-                    quit_game_text.get_width() // 2, 250))
+        self._screen.blit(quit_game_text, (190, 300))
 
         pygame.display.flip()
 
@@ -83,12 +80,12 @@ class ScreenDrawer:
                     instructions_text5.get_width() // 2, 300))
 
         go_start_screen = self._font_small.render(
-            "Palaa aloitus näyttöön (Paina 2)", True, (0, 0, 0))
+            "Palaa aloitus näyttöön (Paina 2)", True, (0, 0, 255))
         self._screen.blit(go_start_screen, (self._width // 2 -
                     go_start_screen.get_width() // 2, 350))
 
         start_game_text = self._font_small.render(
-            "Aloita peli (Paina SPACE)", True, (0, 0, 0))
+            "Aloita peli (Paina SPACE)", True, (255, 0, 0))
         self._screen.blit(start_game_text, (self._width // 2 -
                     start_game_text.get_width() // 2, 400))
 
