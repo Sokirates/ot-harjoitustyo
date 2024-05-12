@@ -11,7 +11,6 @@ Sovelluksella on alustavasti yksi käyttäjärooli.
 
 ### Ennen pelinaloittamista
 - Pelaaja voi lukea pelin säännöt ja ohjeet  (tehty)
-- Pelaaja voi nähdä edellisten pelien tulokset  (tehty)
 
 ### Pelin aikana
 - Pelaaja pystyy heittää noppia  (tehty)
@@ -22,11 +21,8 @@ Sovelluksella on alustavasti yksi käyttäjärooli.
 - Pelaaja näkee sen hetkiset pisteet (tehty)
 - Pelaaja näkee ruudukon mitä ei ole vielä täyttänyt (tehty)
 
-### Pelin lopussa
-- Pelaaja pystyy nimetä pelaajan nimen ja tallentaa tuloksen
-
-
 ## Jatkokehitysideoita
 
+- Pelaaja pystyy nimetä pelaajan nimen ja tallentaa tuloksen
 - Peliä pystyy pelata kaksin
 - Peliä pystyy pelata CPU:ta vastaan
