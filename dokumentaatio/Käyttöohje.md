@@ -32,4 +32,5 @@ Pelinäkymässä voit tehdä näitä toimintoa:
 1. Heittää noppia painamalla SPACE, kun heittoja on jäljellä.
 2. Pistämään pisteen pistetaulukkoon (tyhjään kohtaan) painamalla näppäistöstä kyseisen merkin
 ja lopuksi painamalla ENTER.
-3. Lukitsemaan halutun nopan painamalla ENTER kyseisen nopan päällä. 
+3. Lukita halutun nopan painamalla ENTER kyseisen nopan päällä.
+4. Lopettaa pelin painamalla ESC
