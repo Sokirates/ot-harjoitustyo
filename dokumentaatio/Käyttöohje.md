@@ -33,6 +33,6 @@ Pelinäkymässä voit tehdä näitä toimintoa:
 2. Pistämään pisteen pistetaulukkoon (tyhjään kohtaan) painamalla näppäistöstä kyseisen merkin
 ja lopuksi painamalla ENTER.
 3. Lukita halutun nopan painamalla ENTER kyseisen nopan päällä.
-4. Lopettaa pelin painamalla ESC
+4. Lopettaa pelin painamalla ESC.
 
 ![Pelinäkymä](https://github.com/Sokirates/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/pelin%C3%A4kym%C3%A4.png)
