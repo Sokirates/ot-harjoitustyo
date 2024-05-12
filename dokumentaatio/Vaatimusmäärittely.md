@@ -24,5 +24,6 @@ Sovelluksella on alustavasti yksi käyttäjärooli.
 ## Jatkokehitysideoita
 
 - Pelaaja pystyy nimetä pelaajan nimen ja tallentaa tuloksen
+- Pelaaja pystyy nähdä edellisiä tuloksia
 - Peliä pystyy pelata kaksin
 - Peliä pystyy pelata CPU:ta vastaan
