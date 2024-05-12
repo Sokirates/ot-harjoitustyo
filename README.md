@@ -48,6 +48,5 @@ Raportti generoituu _htmlcov_-hakemistoon.
 
 
 ### Releases
-[Viikko6](https://github.com/Sokirates/ot-harjoitustyo/releases/tag/viikko5)
-
+[Loppupalautus](https://github.com/Sokirates/ot-harjoitustyo/releases/tag/Loppupalautus)
 
