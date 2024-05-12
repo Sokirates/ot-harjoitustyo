@@ -5,7 +5,7 @@
 - [Tuntikirjanpito](https://github.com/Sokirates/ot-harjoitustyo/blob/main/dokumentaatio/tuntikirjanpito.md)
 - [Changelog](https://github.com/Sokirates/ot-harjoitustyo/blob/main/dokumentaatio/changelog.md)
 - [Arkkitehtuuri](https://github.com/Sokirates/ot-harjoitustyo/blob/main/dokumentaatio/Arkkitehtuuri.md)
-
+- [Käyttöohje](https://github.com/Sokirates/ot-harjoitustyo/blob/main/dokumentaatio/K%C3%A4ytt%C3%B6ohje.md)
 ## Asennus
 
 1. Asenna riippuvuudet komennolla:
