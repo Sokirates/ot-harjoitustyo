@@ -209,8 +209,7 @@ class PointsCounter:
 
         if subtotal != 0 and subtotal >= 63:
             return 50
-        else:
-            return 0
+        return 0
 
 
     @staticmethod
@@ -225,5 +224,4 @@ class PointsCounter:
                 total += int(val)
 
         return total+ PointsCounter.calculate_subtotal(scoreboard)
-
     
