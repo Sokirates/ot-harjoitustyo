@@ -18,14 +18,14 @@ Alkunäkymässä voit tehdä näitä toimintoa:
 1. Aloittaa pelin painamalla SPACE
 2. Lopettaa pelin painamalla ESC 
 3. Katsoa ohjeet painamalla 1
-
+![Alkunäkymä](https://github.com/Sokirates/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/aloitusn%C3%A4kym%C3%A4.png)
 ## Ohjenäkymä
 
 Ohjenäkymässä voit tehdä näitä toimintoa:
 1. Lukea ohjeen
 2. Palata aloitusnäkymään painamalla 2
 3. Aloittaa pelin painamalla SPACE
-
+![Ohjenäkymä](https://github.com/Sokirates/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/ohjen%C3%A4kym%C3%A4.png)
 ## Pelinäkymä
 
 Pelinäkymässä voit tehdä näitä toimintoa:
@@ -34,3 +34,5 @@ Pelinäkymässä voit tehdä näitä toimintoa:
 ja lopuksi painamalla ENTER.
 3. Lukita halutun nopan painamalla ENTER kyseisen nopan päällä.
 4. Lopettaa pelin painamalla ESC
+
+![Pelinäkymä](https://github.com/Sokirates/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/pelin%C3%A4kym%C3%A4.png)
