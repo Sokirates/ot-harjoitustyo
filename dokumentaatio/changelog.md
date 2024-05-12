@@ -16,3 +16,7 @@
 
 - Käyttäjä pystyy lukitsemaan noppia
 - Käyttäjä pystyy heittämään korkeintaan kolme kertaa noppia vuorollaan
+
+## Viikko7
+- Käyttäjä pystyy tallentamaan pisteet pistetaulukkoon
+- Käyttäjä näkee sen hetkisen yhteispisteet
