@@ -31,8 +31,9 @@ Ohjenäkymässä voit tehdä näitä toimintoa:
 Pelinäkymässä voit tehdä näitä toimintoa:
 1. Heittää noppia painamalla SPACE, kun heittoja on jäljellä.
 2. Pistämään pisteen pistetaulukkoon (tyhjään kohtaan) painamalla näppäistöstä kyseisen merkin, kun heittoja on jäljellä 0.
-ja lopuksi painamalla ENTER.
-4. Lukita halutun nopan painamalla ENTER kyseisen nopan päällä.
-5. Lopettaa pelin painamalla ESC.
+  Painaa sitten ENTER.
+3. Lukita halutun nopan painamalla ENTER kyseisen nopan päällä. 
+4. Lopettaa pelin painamalla ESC.
+(Jos et halua enään heittää noppia niin lukitse kaikki nopat ja heitä noppia, kunnen heittoja on jäljellä 0)
 
 ![Pelinäkymä](https://github.com/Sokirates/ot-harjoitustyo/blob/main/dokumentaatio/kuvat/pelin%C3%A4kym%C3%A4.png)
