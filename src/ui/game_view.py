@@ -193,12 +193,3 @@ class ScreenDrawer:
         pygame.display.flip()
         global game_running
         game_running = True
-
-
-#    def draw_game_end_screen(self, scoreboard=""):
-#        self._screen.fill((255, 255, 255))
-#
-#        total_points_message = self._font_large.render(f"Total score: {scoreboard['total']}", True, (0, 0, 0))
-#        self._screen.blit(total_points_message, (self._width // 2 -
-#                    total_points_message.get_width() // 2, 100))
-#        pygame.display.flip()
